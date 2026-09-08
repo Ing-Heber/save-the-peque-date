@@ -22,14 +22,34 @@ const cinzel = Cinzel({
 });
 
 export const metadata: Metadata = {
-  title: "Save the Date",
-  description: "You are cordially invited",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://mey-y-heber.com",
+  ),
+  title: "Mey & Héber — Save the Date",
+  description:
+    "Nos casamos 💍 Sábado 27 de febrero de 2027 · Ex Hacienda Nogueras, Comala, Colima. ¡Reserva la fecha!",
+  openGraph: {
+    title: "Mey & Héber — Save the Date",
+    description:
+      "Nos casamos 💍 Sábado 27 de febrero de 2027 · Ex Hacienda Nogueras, Comala, Colima. ¡Reserva la fecha!",
+    type: "website",
+    locale: "es_MX",
+    siteName: "Mey & Héber",
+    images: [{ url: "/detail-card.png", alt: "Invitación de boda de Mey & Héber" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mey & Héber — Save the Date",
+    description:
+      "Nos casamos 💍 Sábado 27 de febrero de 2027 · Ex Hacienda Nogueras, Comala, Colima. ¡Reserva la fecha!",
+    images: ["/detail-card.png"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${cormorant.variable} ${greatVibes.variable} ${cinzel.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
